@@ -4,6 +4,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer className="footer" id="contacto">
+      <div className="footer-ambient-glow"></div>
       <div className="container">
         
         <div className="footer-frame reveal">

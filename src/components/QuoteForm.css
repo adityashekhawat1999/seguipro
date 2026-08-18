@@ -1,46 +1,68 @@
+/* Premium SaaS Dark Mode Form Aesthetics */
+
 .quote-form-container {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: var(--radius-card);
-  padding: 40px;
+  background: rgba(10, 10, 12, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 48px;
   width: 100%;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.9),
+              inset 0 1px 1px rgba(255, 255, 255, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow at the top edge */
+.quote-form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .quote-form-header {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
 .qf-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  color: #FFFFFF;
 }
 
 .qf-subtitle {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .qf-error-banner {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
-  background-color: rgba(255, 50, 50, 0.1);
-  border: 1px solid rgba(255, 50, 50, 0.2);
-  border-radius: 8px;
+  padding: 16px 20px;
+  background-color: rgba(255, 60, 60, 0.08);
+  border: 1px solid rgba(255, 60, 60, 0.2);
+  border-radius: 10px;
   color: #ff6b6b;
-  margin-bottom: 24px;
-  font-size: 0.875rem;
+  margin-bottom: 32px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .quote-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .qf-row {
@@ -55,59 +77,100 @@
 .qf-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .qf-group label {
+  font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
 }
 
+/* Input Wrappers for Icons */
+.qf-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.qf-input-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+.qf-input-wrapper:focus-within .qf-input-icon {
+  color: var(--accent-orange-start);
+}
+
+/* Base Input Styling */
 .quote-form input,
 .quote-form select,
 .quote-form textarea {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 14px 16px;
-  color: var(--text-primary);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 16px 16px;
+  color: #FFFFFF;
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Adjust padding if icon is present */
+.qf-input-wrapper input,
+.qf-select-wrapper .select-icon + select {
+  padding-left: 48px;
 }
 
 .quote-form input::placeholder,
 .quote-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.25);
   font-weight: 400;
+  letter-spacing: 0.5px;
 }
 
+/* Glow Focus States */
 .quote-form input:focus,
 .quote-form select:focus,
 .quote-form textarea:focus {
-  border-color: var(--accent-orange-start);
-  background-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2), 
+              0 0 0 4px rgba(255, 255, 255, 0.02);
 }
 
+/* Select specifics */
 .qf-select-wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .qf-select-wrapper::after {
-  content: '▼';
-  font-size: 0.6rem;
-  color: var(--text-muted);
+  content: '';
   position: absolute;
   right: 16px;
   top: 50%;
-  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  transform: translateY(-70%) rotate(45deg);
   pointer-events: none;
+  transition: border-color var(--transition-fast);
+}
+
+.qf-select-wrapper:focus-within::after {
+  border-color: var(--accent-orange-start);
 }
 
 .quote-form select {
@@ -116,48 +179,62 @@
 }
 
 .quote-form select option {
-  background-color: var(--bg-card);
-  color: var(--text-primary);
+  background-color: #111114;
+  color: #FFFFFF;
+  padding: 12px;
 }
 
 .qf-conditional-area {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 .qf-flow {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .animate-fade-in {
-  animation: qfFadeIn 0.4s ease-out forwards;
+  animation: qfFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes qfFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(15px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Custom Checkboxes */
 .qf-checkbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .qf-checkbox-label {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
-  font-size: 0.875rem !important;
+  font-size: 0.9rem !important;
   font-weight: 400 !important;
-  color: var(--text-primary) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   text-transform: none !important;
   letter-spacing: normal !important;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.qf-checkbox-label:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .qf-checkbox-label input {
@@ -165,54 +242,72 @@
 }
 
 .qf-checkbox-custom {
-  width: 20px;
-  height: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.2);
 }
 
 .qf-checkbox-label input:checked + .qf-checkbox-custom {
   background-color: var(--accent-orange-start);
   border-color: var(--accent-orange-start);
+  box-shadow: 0 0 12px rgba(255, 90, 31, 0.4);
 }
 
 .qf-checkbox-label input:checked + .qf-checkbox-custom::after {
-  content: '✓';
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
+  content: '';
+  width: 6px;
+  height: 10px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg) translateY(-1px);
 }
 
+.qf-checkbox-label:has(input:checked) {
+  border-color: rgba(255, 90, 31, 0.4);
+  background: rgba(255, 90, 31, 0.05);
+  color: #FFFFFF !important;
+}
+
+/* Submit Button */
 .qf-submit {
   align-self: flex-start;
-  margin-top: 16px;
+  margin-top: 24px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 32px;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  gap: 12px;
+  padding: 18px 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px -10px rgba(255, 90, 31, 0.5);
 }
 
 .qf-submit:not(:disabled):hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 25px -5px rgba(255, 90, 31, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 40px -15px rgba(255, 90, 31, 0.7);
+  background-position: 100% 0;
 }
 
 .qf-btn-icon {
-  transition: transform var(--transition-smooth);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .qf-submit:not(:disabled):hover .qf-btn-icon {
-  transform: translateX(4px);
+  transform: translateX(6px);
 }
 
 .qf-submit:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  filter: grayscale(0.5);
 }
 
 /* Success State */
@@ -222,35 +317,40 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 64px 40px;
-  animation: qfFadeIn 0.5s ease-out;
+  padding: 80px 40px;
+  animation: qfFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .success-icon {
   color: var(--accent-orange-start);
   margin-bottom: 24px;
+  filter: drop-shadow(0 0 20px rgba(255, 90, 31, 0.4));
 }
 
 .success-title {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  margin-bottom: 12px;
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  color: #FFFFFF;
 }
 
 .success-desc {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .quote-form-container {
-    padding: 24px;
+    padding: 32px 20px;
   }
   
   .qf-row {
     flex-direction: column;
-    gap: 24px;
+    gap: 28px;
   }
   
   .qf-submit {

@@ -69,6 +69,8 @@ export default function Testimonials() {
     }
   ];
 
+  const allReviews = [featuredReview, ...supportingReviews];
+
   return (
     <section className="testimonials-cinematic section-padding" id="testimonials" ref={sectionRef}>
       <div className="testi-bg-effects">
@@ -141,6 +143,37 @@ export default function Testimonials() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* MOBILE CAROUSEL: Hidden on desktop, visible < 992px */}
+        <div className="testi-mobile-carousel stagger-2">
+          <div className="testi-carousel-track">
+            {allReviews.map((review, idx) => (
+              <div key={`mob-${idx}`} className="testi-carousel-slide">
+                <div className="mobile-card">
+                  <div className="mobile-card-img-wrapper">
+                    <img src={review.image} alt={review.name} className="mobile-card-img" />
+                    <div className="mobile-card-overlay"></div>
+                  </div>
+                  <div className="mobile-card-content">
+                    <div className="review-stars">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} size={14} fill="currentColor" className="star-icon" />
+                      ))}
+                    </div>
+                    <p className="mobile-quote">"{review.content}"</p>
+                    <div className="author-info mt-auto">
+                      <div className="author-name">{review.name}</div>
+                      <div className="author-role text-muted">{review.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mobile-swipe-indicator text-muted">
+            <span>Deslize para ver mais</span>
+          </div>
         </div>
 
       </div>

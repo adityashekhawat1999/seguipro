@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { ArrowRight, CheckCircle2, AlertCircle, User, Mail, Phone, Briefcase } from 'lucide-react';
 import './QuoteForm.css';
 
 export default function QuoteForm() {
@@ -144,22 +144,32 @@ export default function QuoteForm() {
         <div className="qf-row">
           <div className="qf-group">
             <label>NOME COMPLETO</label>
-            <input type="text" name="name" placeholder="O seu nome" value={formData.name} onChange={handleInputChange} required />
+            <div className="qf-input-wrapper">
+              <User size={18} className="qf-input-icon" />
+              <input type="text" name="name" placeholder="O seu nome" value={formData.name} onChange={handleInputChange} required />
+            </div>
           </div>
           <div className="qf-group">
             <label>EMAIL</label>
-            <input type="email" name="email" placeholder="seu@email.com" value={formData.email} onChange={handleInputChange} required />
+            <div className="qf-input-wrapper">
+              <Mail size={18} className="qf-input-icon" />
+              <input type="email" name="email" placeholder="seu@email.com" value={formData.email} onChange={handleInputChange} required />
+            </div>
           </div>
         </div>
 
         <div className="qf-row">
           <div className="qf-group">
             <label>WHATSAPP / TELEFONE</label>
-            <input type="tel" name="whatsapp" placeholder="+351 900 000 000" value={formData.whatsapp} onChange={handleInputChange} required />
+            <div className="qf-input-wrapper">
+              <Phone size={18} className="qf-input-icon" />
+              <input type="tel" name="whatsapp" placeholder="+351 900 000 000" value={formData.whatsapp} onChange={handleInputChange} required />
+            </div>
           </div>
           <div className="qf-group">
             <label>SERVIÇO PRETENDIDO</label>
             <div className="qf-select-wrapper">
+              <Briefcase size={18} className="qf-input-icon select-icon" />
               <select name="service" value={formData.service} onChange={handleInputChange} required>
                 <option value="" disabled>Selecione um serviço...</option>
                 <option value="Instagram Growth">Crescimento Instagram</option>
@@ -347,7 +357,7 @@ export default function QuoteForm() {
 
         <button type="submit" className="btn-primary qf-submit" disabled={isSubmitting}>
           {isSubmitting ? 'A ENVIAR...' : (
-            <>PEDIR ORÇAMENTO <ArrowRight size={18} className="qf-btn-icon" /></>
+            <>ENVIAR SOLICITAÇÃO <ArrowRight size={18} className="qf-btn-icon" /></>
           )}
         </button>
       </form>
