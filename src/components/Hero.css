@@ -1,0 +1,167 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 100px; /* Offset for sticky nav */
+}
+
+/* Animated Mesh Background */
+.hero-bg-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2800&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  filter: saturate(0) contrast(1.2); /* Make it black and white and high contrast to blend with brand colors */
+}
+
+.hero-bg-mesh::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-primary) 100%),
+    linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, var(--bg-primary) 100%);
+}
+
+.hero-bg-mesh::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: center center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+/* Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+  padding-bottom: 120px;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.star-icon {
+  color: var(--accent-orange-start);
+}
+
+.hero-headline {
+  margin-bottom: 32px;
+  max-width: 1000px;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero-subhead {
+  max-width: 650px;
+  font-size: 1.25rem;
+  margin-bottom: 56px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.btn-large {
+  padding: 16px 36px;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+  }
+  .hero-actions .btn-primary {
+    width: 100%;
+  }
+}
+
+/* Mini Nav */
+.hero-mini-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+  background: linear-gradient(to top, rgba(10,10,10,0.8), transparent);
+}
+
+.mini-nav-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.mini-nav-item {
+  flex: 1;
+  padding: 24px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mini-nav-item:hover {
+  color: var(--text-primary);
+}
+
+.mini-nav-item.active {
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--accent-orange-start);
+}
+
+.mini-nav-num {
+  font-size: 0.75rem;
+  color: var(--accent-orange-start);
+}
+
+@media (max-width: 768px) {
+  .hero-mini-nav {
+    display: none; /* Hide mini nav on mobile for simplicity, or make it a scrollable row */
+  }
+}

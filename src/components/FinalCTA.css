@@ -1,0 +1,142 @@
+.insane-cta {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px 0;
+  margin-top: -1px; /* overlap to prevent seam */
+}
+
+/* Background & Vignette */
+.insane-cta-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2800&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  filter: saturate(0) contrast(1.2) brightness(0.8);
+}
+
+.cta-vignette {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Very dark at the edges to blend with the rest of the site */
+  background: radial-gradient(circle at 40% 50%, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.95) 70%, var(--bg-primary) 100%);
+  z-index: 1;
+}
+
+.cta-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start; /* Align card to left */
+}
+
+/* Glass Card */
+.cta-glass-card {
+  position: relative;
+  max-width: 650px;
+  background-color: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 138, 61, 0.2);
+  border-radius: 24px;
+  padding: 80px 64px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(255, 90, 31, 0.05);
+  overflow: hidden;
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Inner Glow Orb */
+.cta-glass-card .glow-orb {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 90, 31, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Typography */
+.cta-insane-heading {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+  color: #FFF;
+}
+
+.neon-text {
+  color: #FF5A1F;
+  text-shadow: 0 0 20px rgba(255, 90, 31, 0.8), 0 0 40px rgba(255, 90, 31, 0.4);
+}
+
+.cta-insane-subhead {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 48px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 90%;
+}
+
+/* Insane Button */
+.cta-btn-glow {
+  padding: 18px 40px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #FF5A1F, #FF8A3D);
+  color: #FFF;
+  border: none;
+  box-shadow: 0 0 30px rgba(255, 90, 31, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn-glow::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; width: 200%; height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg) translate(-100%, -100%);
+  transition: transform 0.6s ease;
+}
+
+.cta-btn-glow:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 90, 31, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #FF8A3D, #FF5A1F);
+}
+
+.cta-btn-glow:hover::after {
+  transform: rotate(45deg) translate(100%, 100%);
+}
+
+@media (max-width: 992px) {
+  .insane-cta {
+    padding: 80px 0;
+  }
+  .cta-glass-card {
+    padding: 60px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-vignette {
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.8) 50%, #0A0A0A 100%);
+  }
+  .cta-glass-card {
+    padding: 40px 24px;
+    border-radius: 16px;
+  }
+  .cta-btn-glow {
+    width: 100%;
+    text-align: center;
+  }
+}
