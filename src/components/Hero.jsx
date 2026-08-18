@@ -1,34 +1,7 @@
-import { useEffect, useState } from 'react';
 import { ArrowRight, Star } from 'lucide-react';
 import './Hero.css';
 
 export default function Hero() {
-  const [activeSection, setActiveSection] = useState('01');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const instagram = document.getElementById('instagram');
-      const sites = document.getElementById('sites');
-      const ecommerce = document.getElementById('ecommerce');
-
-      if (!instagram || !sites || !ecommerce) return;
-
-      const scrollPos = window.scrollY + window.innerHeight / 2;
-
-      if (ecommerce.offsetTop <= scrollPos) {
-        setActiveSection('03');
-      } else if (sites.offsetTop <= scrollPos) {
-        setActiveSection('02');
-      } else if (instagram.offsetTop <= scrollPos) {
-        setActiveSection('01');
-      } else {
-        setActiveSection('01');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section className="hero" id="hero">
@@ -60,19 +33,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="hero-mini-nav reveal" style={{ transitionDelay: '400ms' }}>
-        <div className="container mini-nav-container">
-          <a href="#instagram" className={`mini-nav-item ${activeSection === '01' ? 'active' : ''}`}>
-            <span className="mini-nav-num">01</span> Instagram Growth
-          </a>
-          <a href="#sites" className={`mini-nav-item ${activeSection === '02' ? 'active' : ''}`}>
-            <span className="mini-nav-num">02</span> Sites Profissionais
-          </a>
-          <a href="#ecommerce" className={`mini-nav-item ${activeSection === '03' ? 'active' : ''}`}>
-            <span className="mini-nav-num">03</span> E-commerce
-          </a>
-        </div>
-      </div>
     </section>
   );
 }
