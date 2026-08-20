@@ -223,7 +223,9 @@
   }
   
   .pg-panel {
-    height: 500px;
+    flex: none;
+    height: 420px;
+    min-height: 420px;
   }
   
   .pg-container:hover .pg-panel {
@@ -263,19 +265,19 @@
   }
 
   .pg-title {
-    font-size: 2.25rem;
-    margin-bottom: 24px;
+    font-size: 1.75rem;
+    margin-bottom: 16px;
   }
-  
-  .pg-desc {
-    display: none;
-  }
-  
+
+  .pg-index,
+  .pg-desc,
   .pg-micro-ui {
     display: none;
   }
   
   .pg-panel {
-    height: 380px;
+    flex: none;
+    height: 420px;
+    min-height: 420px;
   }
 }

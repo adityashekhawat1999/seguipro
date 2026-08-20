@@ -375,6 +375,10 @@
 
   .gim-tile { display: none; } /* Hide floating tiles on mobile to avoid clutter */
 
+  .gim-visual-area .gim-annotation {
+    display: none;
+  }
+
   .gim-annotation {
     position: relative;
     top: auto !important;
