@@ -161,7 +161,7 @@ export default function InstagramQuoteModal({ isOpen, onClose, plan }) {
                     <label>WHATSAPP / TELEFONE</label>
                     <div className="qf-input-wrapper">
                       <Phone size={18} className="qf-input-icon" />
-                      <input type="tel" name="whatsapp" placeholder="+351 900 000 000" value={formData.whatsapp} onChange={handleInputChange} required />
+                      <input type="tel" name="whatsapp" placeholder="+244 900 000 000" value={formData.whatsapp} onChange={handleInputChange} required />
                     </div>
                   </div>
                   <div className="qf-group">
