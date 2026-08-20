@@ -7,7 +7,7 @@ import Testimonials from '../components/Testimonials';
 import FinalCTA from '../components/FinalCTA';
 
 export default function Home() {
-  useDocumentTitle('SeguiProo - Mais Seguidores. Mais Credibilidade.');
+  useDocumentTitle('SeguiProo');
 
   return (
     <div className="page-home">
