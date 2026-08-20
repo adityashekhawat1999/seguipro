@@ -1,7 +1,21 @@
+import { useState } from 'react';
 import { Check, Star, Layout, MapPin, Smartphone, Shield, Zap, Search, Settings, Phone, BarChart2 } from 'lucide-react';
+import WebsitesQuoteModal from './WebsitesQuoteModal';
 import './WebDevelopment.css';
 
 export default function WebDevelopment() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  const handleOpenModal = (plan) => {
+    setSelectedPlan(plan);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedPlan(null), 300);
+  };
   const features = [
     'Design Premium Personalizado',
     'Google Maps Integrado',
@@ -102,9 +116,9 @@ export default function WebDevelopment() {
                     <li key={i}><Check size={16} /> {inc}</li>
                   ))}
                 </ul>
-                <a href="#contacto" className={`btn-primary ${!pkg.popular ? 'outline' : ''}`}>
+                <button onClick={() => handleOpenModal({ ...pkg, isEcommerce: false })} className={`btn-primary ${!pkg.popular ? 'outline' : ''}`} style={{ cursor: 'pointer', border: pkg.popular ? 'none' : '', fontFamily: 'inherit', width: '100%' }}>
                   ESCOLHER PACOTE
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -122,9 +136,9 @@ export default function WebDevelopment() {
                     <li key={i}><Check size={16} /> {inc}</li>
                   ))}
                 </ul>
-                <a href="#contacto" className="btn-primary outline">
+                <button onClick={() => handleOpenModal({ ...pkg, isEcommerce: true })} className="btn-primary outline" style={{ cursor: 'pointer', fontFamily: 'inherit', width: '100%' }}>
                   ESCOLHER PACOTE
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -153,6 +167,13 @@ export default function WebDevelopment() {
         </div>
 
       </div>
+      
+      {/* Premium Quote Modal */}
+      <WebsitesQuoteModal 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        plan={selectedPlan} 
+      />
     </section>
   );
 }

@@ -1,4 +1,5 @@
 import QuoteForm from './QuoteForm';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
@@ -21,9 +22,9 @@ export default function Footer() {
               <div className="footer-col">
                 <h4 className="footer-col-title">Links Rápidos</h4>
                 <ul className="footer-links">
-                  <li><a href="#servicos">Serviços</a></li>
-                  <li><a href="#instagram">Instagram Growth</a></li>
-                  <li><a href="#sites">Sites & E-commerce</a></li>
+                  <li><Link to="/">Início</Link></li>
+                  <li><Link to="/instagram">Instagram Growth</Link></li>
+                  <li><Link to="/websites">Sites & E-commerce</Link></li>
                   <li><a href="#contacto">Contacto</a></li>
                 </ul>
               </div>

@@ -1,14 +1,22 @@
+import { useState } from 'react';
 import { Users, Shield, Zap, RefreshCw, CheckCircle, Award, Heart, Headset, TrendingUp, ChevronRight, Star } from 'lucide-react';
+import InstagramQuoteModal from './InstagramQuoteModal';
 import './InstagramGrowth.css';
 
 export default function InstagramGrowth() {
-  const features = [
-    { icon: <Users size={24} />, title: 'Seguidores Reais', desc: 'Pessoas reais e ativas.' },
-    { icon: <Award size={24} />, title: 'Alta Qualidade', desc: 'Seguidores com perfis reais e engajados.' },
-    { icon: <Zap size={24} />, title: 'Entrega Rápida', desc: 'Resultados rápidos, entregas em até 72h.' },
-    { icon: <RefreshCw size={24} />, title: 'Reposição Garantida', desc: 'Seguidores repostos em caso de queda.' },
-    { icon: <Shield size={24} />, title: '100% Seguro', desc: 'Sem senha, sem risco para a conta.' },
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState(null);
+
+  const handleOpenModal = (plan) => {
+    setSelectedPlan(plan);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // Optional: wait for animation to finish before clearing plan
+    setTimeout(() => setSelectedPlan(null), 300);
+  };
 
   const packages = [
     { name: 'Instagram Premium Brasileiros e Mundiais', quality: 'Alta', refill: 'Com Reposição', drop: 'Baixa', qty: '1000 seguidores', priceEur: '€8', priceKz: '10.400 Kz', time: '1h–48h', obs: '—' },
@@ -28,36 +36,8 @@ export default function InstagramGrowth() {
   ];
 
   return (
-    <section className="instagram-growth section-padding" id="instagram">
+    <section className="instagram-growth section-padding" id="precos" style={{ paddingTop: '60px' }}>
       <div className="container">
-        <div className="instagram-top-layout">
-          <div className="instagram-content">
-            <div className="section-header reveal text-left">
-              <h2 className="heading-md">
-                Impulsione o <br/><span className="italic-serif text-gradient">Seu Instagram</span>
-              </h2>
-              <p className="text-muted mt-4">Alcance milhares de novas contas com estratégias validadas de crescimento e engajamento orgânico premium.</p>
-            </div>
-
-            <div className="features-row reveal" style={{ transitionDelay: '200ms' }}>
-              {features.map((feat, idx) => (
-                <div key={idx} className="feature-item">
-                  <div className="feature-icon">{feat.icon}</div>
-                  <div className="feature-text">
-                    <h4 className="feature-title">{feat.title}</h4>
-                    <p className="feature-desc text-muted">{feat.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="instagram-image-wrapper reveal" style={{ transitionDelay: '300ms' }}>
-            <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1000&auto=format&fit=crop" alt="Instagram Growth Strategy" className="instagram-side-img" />
-            <div className="image-glow"></div>
-          </div>
-        </div>
-
         <div className="pricing-section-hero reveal" style={{ transitionDelay: '300ms' }}>
           <div className="eyebrow text-gradient">Serviços Premium</div>
           <h3 className="heading-sm pricing-hero-title">Escolha o crescimento certo para o seu perfil.</h3>
@@ -66,8 +46,8 @@ export default function InstagramGrowth() {
 
         <div className="premium-pricing-cards">
           {packages.map((pkg, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`pricing-row-card reveal ${pkg.highlight ? 'featured-pricing-card' : ''}`}
               style={{ transitionDelay: `${400 + (idx * 100)}ms` }}
             >
@@ -76,7 +56,7 @@ export default function InstagramGrowth() {
                   <Star size={12} fill="currentColor" /> MAIS SOLICITADO
                 </div>
               )}
-              
+
               {/* Left Identity */}
               <div className="prc-identity">
                 <div className="prc-icon">
@@ -113,9 +93,9 @@ export default function InstagramGrowth() {
                   <div className="prc-kz">{pkg.priceKz}</div>
                   <div className="prc-qty">{pkg.qty}</div>
                 </div>
-                <a href="#contacto" className="btn-primary prc-btn">
+                <button onClick={() => handleOpenModal(pkg)} className="btn-primary prc-btn" style={{ cursor: 'pointer', border: 'none', fontFamily: 'inherit' }}>
                   PEDIR <ChevronRight size={16} />
-                </a>
+                </button>
               </div>
             </div>
           ))}
@@ -131,6 +111,13 @@ export default function InstagramGrowth() {
         </div>
 
       </div>
+
+      {/* Premium Quote Modal */}
+      <InstagramQuoteModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        plan={selectedPlan}
+      />
     </section>
   );
 }

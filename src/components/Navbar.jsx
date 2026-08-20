@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,15 +25,15 @@ export default function Navbar() {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
         {/* Left: Logo */}
-        <a href="#" className="navbar-logo-link">
-          <img src="/logo.png" alt="FollowPro" className="navbar-logo-img" />
-        </a>
+        <Link to="/" className="navbar-logo-link">
+          <img src="/logo.png" alt="SeguiPro" className="navbar-logo-img" />
+        </Link>
 
         {/* Center: Desktop Links */}
         <div className="navbar-links desktop-only">
-          <a href="#servicos" className="nav-link">Serviços</a>
-          <a href="#instagram" className="nav-link">Instagram</a>
-          <a href="#sites" className="nav-link">Sites</a>
+          <Link to="/" className={`nav-link ${path === '/' ? 'active' : ''}`}>Início</Link>
+          <Link to="/instagram" className={`nav-link ${path === '/instagram' ? 'active' : ''}`}>Instagram</Link>
+          <Link to="/websites" className={`nav-link ${path === '/websites' ? 'active' : ''}`}>Websites</Link>
           <a href="#contacto" className="nav-link">Contacto</a>
         </div>
 
@@ -48,9 +51,9 @@ export default function Navbar() {
       {/* Full Screen Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-content">
-          <a href="#servicos" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Serviços</a>
-          <a href="#instagram" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Instagram</a>
-          <a href="#sites" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Sites</a>
+          <Link to="/" className={`mobile-nav-link ${path === '/' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Início</Link>
+          <Link to="/instagram" className={`mobile-nav-link ${path === '/instagram' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Instagram</Link>
+          <Link to="/websites" className={`mobile-nav-link ${path === '/websites' ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(false)}>Websites</Link>
           <a href="#contacto" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>Contacto</a>
           
           <a href="#contacto" className="btn-primary mobile-menu-cta" onClick={() => setIsMobileMenuOpen(false)}>

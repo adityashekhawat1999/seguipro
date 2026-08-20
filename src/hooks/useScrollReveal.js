@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 export const useScrollReveal = (options = { threshold: 0.2 }) => {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
@@ -22,5 +25,5 @@ export const useScrollReveal = (options = { threshold: 0.2 }) => {
       elements.forEach((el) => observer.unobserve(el));
       observer.disconnect();
     };
-  }, [options.threshold]);
+  }, [options.threshold, pathname]);
 };

@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { ArrowRight, CheckCircle2, AlertCircle, User, Mail, Phone, Briefcase } from 'lucide-react';
 import './QuoteForm.css';
 
 export default function QuoteForm() {
+  const location = useLocation();
+  const path = location.pathname;
+
+  const getInitialService = () => {
+    if (path === '/instagram') return 'Instagram Growth';
+    if (path === '/websites') return 'Website';
+    return '';
+  };
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     whatsapp: '',
-    service: '',
+    service: getInitialService(),
     
     // Instagram Fields
     instagram_username: '',
@@ -33,6 +43,11 @@ export default function QuoteForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('idle'); // 'idle', 'success', 'error'
+
+  // Update service if user navigates without full reload
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, service: getInitialService() }));
+  }, [path]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
