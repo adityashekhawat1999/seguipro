@@ -36,7 +36,7 @@ export default function PremiumGateway() {
             <h3 className="pg-title">Construa a sua audiência.</h3>
             <p className="pg-desc">Seguidores reais, prova social instantânea e alcance global para o seu perfil.</p>
             <div className="pg-cta">
-              EXPLORAR INSTAGRAM <ArrowRight size={18} className="pg-cta-icon" />
+              CLIQUE AQUI PARA EXPLORAR INSTAGRAM <ArrowRight size={18} className="pg-cta-icon" />
             </div>
           </div>
         </Link>
@@ -63,7 +63,7 @@ export default function PremiumGateway() {
             <h3 className="pg-title">Construa a sua presença.</h3>
             <p className="pg-desc">Sites rápidos, premium e e-commerces desenhados estrategicamente para converter.</p>
             <div className="pg-cta">
-              EXPLORAR WEBSITES <ArrowRight size={18} className="pg-cta-icon" />
+              CLIQUE AQUI PARA EXPLORAR WEBSITES <ArrowRight size={18} className="pg-cta-icon" />
             </div>
           </div>
         </Link>
