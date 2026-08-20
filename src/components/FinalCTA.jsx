@@ -17,7 +17,7 @@ export default function FinalCTA() {
           </h2>
           
           <p className="cta-insane-subhead text-muted">
-            Eleve a sua marca a outro nível. Colabore com a SeguiPro para construir experiências digitais inteligentes, atrair mais clientes e escalar os seus resultados de forma explosiva.
+            Eleve a sua marca a outro nível. Colabore com a SeguiProo para construir experiências digitais inteligentes, atrair mais clientes e escalar os seus resultados de forma explosiva.
           </p>
           
           <div className="cta-actions">

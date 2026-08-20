@@ -26,7 +26,7 @@ export default function Navbar() {
       <div className="container navbar-container">
         {/* Left: Logo */}
         <Link to="/" className="navbar-logo-link">
-          <img src="/logo.png" alt="SeguiPro" className="navbar-logo-img" />
+          <img src="/logo.png" alt="SeguiProo" className="navbar-logo-img" />
         </Link>
 
         {/* Center: Desktop Links */}

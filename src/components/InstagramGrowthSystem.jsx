@@ -64,14 +64,14 @@ export default function InstagramGrowthSystem() {
     <section className="gim-section reveal" ref={sectionRef}>
       <div className="gim-bg"></div>
       
-      <div className="gim-micro gim-micro-1">SEGUIPRO / 2026</div>
+      <div className="gim-micro gim-micro-1">SEGUIPROO / 2026</div>
       <div className="gim-micro gim-micro-2">DIGITAL / SOCIAL</div>
 
       <div className="gim-container">
         
         {/* Left Typography */}
         <div className="gim-typography reveal">
-          <span className="gim-label">01 &mdash; O PADRÃO SEGUIPRO</span>
+          <span className="gim-label">01 &mdash; O PADRÃO SEGUIPROO</span>
           <h2 className="gim-headline">CRESCIMENTO</h2>
           <span className="gim-subhead italic-serif text-gradient">que se vê.</span>
           <p className="gim-desc">Seguidores reais, entrega rápida e qualidade premium para transformar a presença da sua marca no Instagram.</p>

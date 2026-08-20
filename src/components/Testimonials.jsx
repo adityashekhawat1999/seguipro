@@ -46,7 +46,7 @@ export default function Testimonials() {
     {
       name: 'Maria Fernandes',
       role: 'CEO, Marca de Moda',
-      content: 'Fizemos o nosso site e-commerce com a SeguiPro e as vendas aumentaram no primeiro mês. Design premium e muito rápido.',
+      content: 'Fizemos o nosso site e-commerce com a SeguiProo e as vendas aumentaram no primeiro mês. Design premium e muito rápido.',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=400&auto=format&fit=crop',
       position: 'top-right'

@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <p>© SeguiPro 2026. Todos os direitos reservados.</p>
+            <p>© SeguiProo 2026. Todos os direitos reservados.</p>
           </div>
 
         </div>

@@ -3,7 +3,7 @@ import WebsitesHero from '../components/WebsitesHero';
 import WebDevelopment from '../components/WebDevelopment';
 
 export default function WebsitesPage() {
-  useDocumentTitle('Websites & E-commerce — SeguiPro');
+  useDocumentTitle('Websites & E-commerce — SeguiProo');
 
   return (
     <div className="page-websites">
