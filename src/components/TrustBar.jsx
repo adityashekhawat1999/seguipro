@@ -63,7 +63,7 @@ export default function TrustBar() {
         
         <div className="trust-bar-text reveal">
           <p className="text-muted">
-            O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade — no Instagram e online.
+            O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade - no Instagram e online.
           </p>
         </div>
 

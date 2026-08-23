@@ -20,7 +20,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-subhead text-muted reveal" style={{ transitionDelay: '200ms' }}>
-          O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade — no Instagram e online.
+          O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade - no Instagram e online.
         </p>
 
         <div className="hero-actions reveal" style={{ transitionDelay: '300ms' }}>
