@@ -1,6 +1,6 @@
 import QuoteForm from './QuoteForm';
 import { Link } from 'react-router-dom';
-import { Mail, MessageCircle } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -51,7 +51,10 @@ export default function Footer() {
                   </li>
                   <li style={{ marginTop: '12px' }}>
                     <a href="https://wa.me/919220356317" target="_blank" rel="noreferrer" className="social-link">
-                      <MessageCircle size={18} className="social-icon" />
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="social-icon">
+                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                        <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                      </svg>
                       +91 92203 56317
                     </a>
                   </li>
