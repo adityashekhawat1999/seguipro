@@ -187,7 +187,7 @@ export default function QuoteForm() {
               <Briefcase size={18} className="qf-input-icon select-icon" />
               <select name="service" value={formData.service} onChange={handleInputChange} required>
                 <option value="" disabled>Selecione um serviço...</option>
-                <option value="Instagram Growth">Crescimento Instagram</option>
+                <option value="Instagram Growth">Impulsione o seu Instagram</option>
                 <option value="Website">Criação de Site / E-commerce</option>
                 <option value="SEO">Otimização SEO</option>
                 <option value="Other">Outro / Não tenho certeza</option>

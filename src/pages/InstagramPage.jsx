@@ -4,7 +4,7 @@ import InstagramGrowthSystem from '../components/InstagramGrowthSystem';
 import InstagramGrowth from '../components/InstagramGrowth';
 
 export default function InstagramPage() {
-  useDocumentTitle('Crescimento Instagram - SeguiProo');
+  useDocumentTitle('Impulsione o seu Instagram - SeguiProo');
 
   return (
     <div className="page-instagram">
