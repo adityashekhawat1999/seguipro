@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import 'flag-icons/css/flag-icons.min.css';
 import './TrustBar.css';
 
 const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
@@ -45,6 +46,19 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
 export default function TrustBar() {
   return (
     <section className="trust-bar section-padding">
+      
+      {/* --- ATMOSPHERIC COUNTRY BACKGROUNDS --- */}
+      <div className="tb-atmosphere">
+        {/* Angola */}
+        <div className="tb-flag tb-angola"><span className="fi fi-ao"></span></div>
+        
+        {/* Portugal */}
+        <div className="tb-flag tb-portugal"><span className="fi fi-pt"></span></div>
+        
+        {/* Brazil */}
+        <div className="tb-flag tb-brazil"><span className="fi fi-br"></span></div>
+      </div>
+
       <div className="container trust-bar-container">
         
         <div className="trust-bar-text reveal">

@@ -23,6 +23,87 @@
   grid-template-columns: 1fr 1.5fr;
   gap: 64px;
   align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- ATMOSPHERIC COUNTRY BACKGROUNDS --- */
+.tb-atmosphere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.tb-flag {
+  position: absolute;
+  opacity: 0.18; /* Visible but highly integrated (target 12-25%) */
+}
+
+/* Base styles for the actual SVG flags */
+.tb-flag span.fi {
+  width: 100%;
+  height: 100%;
+  display: block !important;
+  background-size: cover;
+  background-position: center;
+  /* Soft masking so the flag naturally fades into the background at the edges */
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+  mask-image: radial-gradient(circle at center, black 30%, transparent 75%);
+}
+
+/* Angola: Far left, heavily cropped */
+.tb-angola {
+  top: -10%;
+  left: -15%;
+  width: 600px;
+  height: 600px;
+  animation: tbFloatAngola 15s ease-in-out infinite alternate;
+}
+.tb-angola span.fi {
+  filter: brightness(0.8) contrast(1.1) saturate(0.85);
+}
+
+/* Portugal: Upper-right / center-right */
+.tb-portugal {
+  top: -25%;
+  left: 35%;
+  width: 500px;
+  height: 500px;
+  animation: tbFloatPortugal 18s ease-in-out infinite alternate-reverse;
+}
+.tb-portugal span.fi {
+  filter: brightness(0.7) contrast(1.15) saturate(0.75);
+}
+
+/* Brazil: Lower-right / far-right */
+.tb-brazil {
+  bottom: -35%;
+  right: -10%;
+  width: 650px;
+  height: 650px;
+  animation: tbFloatBrazil 22s ease-in-out infinite alternate;
+}
+.tb-brazil span.fi {
+  filter: brightness(0.75) contrast(1.1) saturate(0.75);
+}
+
+/* Subtle independent float movement (2-5px as requested) */
+@keyframes tbFloatAngola {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(3px, 4px); }
+}
+@keyframes tbFloatPortugal {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-2px, 3px); }
+}
+@keyframes tbFloatBrazil {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(4px, -2px); }
 }
 
 .trust-bar-text {
@@ -68,5 +149,32 @@
   .trust-bar-stats {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+}
+
+/* Responsive simplification for background flags */
+@media (max-width: 992px) {
+  .tb-flag {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Use editorial mobile layout */
+  .tb-angola {
+    top: -20%;
+    left: -30%;
+    width: 550px;
+    height: 550px;
+  }
+  .tb-portugal {
+    display: none; /* Hide middle one to prevent clutter on small screens */
+  }
+  .tb-brazil {
+    bottom: -15%;
+    right: -30%;
+    width: 500px;
+    height: 500px;
   }
 }
