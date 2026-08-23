@@ -1,5 +1,6 @@
 import QuoteForm from './QuoteForm';
 import { Link } from 'react-router-dom';
+import { Instagram, Mail, MessageCircle } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -34,12 +35,20 @@ export default function Footer() {
                 <ul className="footer-links">
                   <li>
                     <a href="https://www.instagram.com/seguipro_/" target="_blank" rel="noreferrer" className="social-link">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="social-icon">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
+                      <Instagram size={18} className="social-icon" />
                       @seguipro_
+                    </a>
+                  </li>
+                  <li style={{ marginTop: '12px' }}>
+                    <a href="mailto:geral@seguiproo.com" className="social-link">
+                      <Mail size={18} className="social-icon" />
+                      geral@seguiproo.com
+                    </a>
+                  </li>
+                  <li style={{ marginTop: '12px' }}>
+                    <a href="https://wa.me/919220356317" target="_blank" rel="noreferrer" className="social-link">
+                      <MessageCircle size={18} className="social-icon" />
+                      +91 92203 56317
                     </a>
                   </li>
                 </ul>
