@@ -24,7 +24,7 @@ export default function Footer() {
                 <h4 className="footer-col-title">Links Rápidos</h4>
                 <ul className="footer-links">
                   <li><Link to="/">Início</Link></li>
-                  <li><Link to="/instagram">Instagram Growth</Link></li>
+                  <li><Link to="/instagram">Crescimento Instagram</Link></li>
                   <li><Link to="/websites">Sites & E-commerce</Link></li>
                   <li><a href="#contacto">Contacto</a></li>
                 </ul>
