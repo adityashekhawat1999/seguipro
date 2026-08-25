@@ -33,18 +33,21 @@ export default function WebDevelopment() {
   const sitePackages = [
     {
       name: 'Site Starter',
-      price: 'Desde €699 (908.700 Kz)',
+      oldPrice: '€699',
+      price: '€349 (454.350 Kz)',
       includes: ['Até 2 páginas', 'Design Responsivo', 'Formulário de Contacto', 'WhatsApp', 'SEO Básico', '2 Revisões', 'Entrega 5–7 dias']
     },
     {
       name: 'Site Empresarial',
-      price: 'Desde €1.199 (1.558.700 Kz)',
+      oldPrice: '€1.199',
+      price: '€599 (779.350 Kz)',
       includes: ['Até 5 páginas', 'Design Personalizado', 'Google Maps', 'WhatsApp', 'SEO Básico', 'Otimização de Velocidade', '4 Revisões', 'Entrega 7–10 dias'],
       popular: true
     },
     {
       name: 'Site Profissional',
-      price: 'Desde €1.799 (2.338.700 Kz)',
+      oldPrice: '€1.799',
+      price: '€899 (1.169.350 Kz)',
       includes: ['Até 10 páginas', 'Design Premium', 'Blog', 'CMS', 'SEO Avançado', 'Animações', 'Formulários de Agendamento', 'Otimização de Performance', 'Entrega 10–14 dias']
     }
   ];
@@ -52,17 +55,20 @@ export default function WebDevelopment() {
   const ecoPackages = [
     {
       name: 'Ecommerce Starter',
-      price: '€2.199 (2.858.700 Kz)',
+      oldPrice: '€2.199',
+      price: '€1.099 (1.429.350 Kz)',
       includes: ['Loja Online', 'Carrinho', 'Até 20 Produtos', 'Pagamento Online', 'Responsivo', 'SEO Básico']
     },
     {
       name: 'Ecommerce Business',
-      price: '€2.999 (3.898.700 Kz)',
+      oldPrice: '€2.999',
+      price: '€1.499 (1.949.350 Kz)',
       includes: ['Produtos Ilimitados', 'Inventário', 'Cupões', 'Contas de Clientes', 'Relatórios', 'SEO Avançado']
     },
     {
       name: 'Ecommerce Enterprise',
-      price: 'Desde €4.500 (5.850.000 Kz)',
+      oldPrice: '€4.500',
+      price: '€2.250 (2.925.000 Kz)',
       includes: ['Integrações API', 'CRM', 'ERP', 'Multi-idioma', 'Multi-moeda', 'Funcionalidades Personalizadas']
     }
   ];
@@ -75,7 +81,7 @@ export default function WebDevelopment() {
     { name: 'Alojamento Premium', price: '€180/ano (234.000 Kz/ano)' },
     { name: 'Email Profissional', price: '€60/ano (78.000 Kz/ano)' },
     { name: 'Manutenção do Site', price: '€60/mês (78.000 Kz/mês)' },
-    { name: 'Otimização SEO', price: 'Desde €350 (455.000 Kz)' },
+    { name: 'Otimização SEO', price: 'Desde €175 (97.500 Kz)', oldPrice: '€350' },
   ];
 
   const promise = [
@@ -110,7 +116,15 @@ export default function WebDevelopment() {
               <div key={idx} className={`price-card ${pkg.popular ? 'popular' : ''}`}>
                 {pkg.popular && <div className="popular-badge"><Star size={12} /> Mais Popular</div>}
                 <h3 className="pkg-name">{pkg.name}</h3>
-                <div className="pkg-price">{pkg.price}</div>
+                <div className="pkg-price-wrapper">
+                  {pkg.oldPrice && (
+                    <div className="pkg-old-price">
+                      <span className="strikethrough">De {pkg.oldPrice}</span>
+                      <span className="discount-badge">50% OFF</span>
+                    </div>
+                  )}
+                  <div className="pkg-price">{pkg.price}</div>
+                </div>
                 <ul className="pkg-includes">
                   {pkg.includes.map((inc, i) => (
                     <li key={i}><Check size={16} /> {inc}</li>
@@ -130,7 +144,15 @@ export default function WebDevelopment() {
             {ecoPackages.map((pkg, idx) => (
               <div key={idx} className="price-card">
                 <h3 className="pkg-name">{pkg.name}</h3>
-                <div className="pkg-price">{pkg.price}</div>
+                <div className="pkg-price-wrapper">
+                  {pkg.oldPrice && (
+                    <div className="pkg-old-price">
+                      <span className="strikethrough">De {pkg.oldPrice}</span>
+                      <span className="discount-badge">50% OFF</span>
+                    </div>
+                  )}
+                  <div className="pkg-price">{pkg.price}</div>
+                </div>
                 <ul className="pkg-includes">
                   {pkg.includes.map((inc, i) => (
                     <li key={i}><Check size={16} /> {inc}</li>
@@ -150,7 +172,10 @@ export default function WebDevelopment() {
             {addons.map((addon, idx) => (
               <div key={idx} className="addon-item">
                 <span className="addon-name">{addon.name}</span>
-                <span className="addon-price text-muted">{addon.price}</span>
+                <span className="addon-price text-muted">
+                  {addon.oldPrice && <span style={{ textDecoration: 'line-through', opacity: 0.7, marginRight: '8px' }}>De {addon.oldPrice}</span>}
+                  {addon.price}
+                </span>
               </div>
             ))}
           </div>

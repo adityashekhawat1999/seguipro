@@ -134,10 +134,39 @@
   margin-bottom: 16px;
 }
 
+.pkg-price-wrapper {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pkg-old-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.pkg-old-price .strikethrough {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.discount-badge {
+  background: rgba(255, 42, 42, 0.15);
+  color: #ff2a2a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .pkg-price {
   font-size: 1.5rem;
   font-weight: 800;
-  margin-bottom: 32px;
   line-height: 1.2;
 }
 
