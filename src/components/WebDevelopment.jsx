@@ -99,6 +99,10 @@ export default function WebDevelopment() {
           <h2 className="heading-md">
             Sites Profissionais <span className="italic-serif text-gradient">Que Convertem</span>
           </h2>
+          <div className="hero-day-promo">
+            <span className="promo-badge">PROMOÇÃO ESPECIAL</span>
+            <p><strong>50% de Desconto</strong> em todos os pacotes até <strong>17 de Setembro</strong> (Dia do Herói Nacional 🇦🇴)</p>
+          </div>
         </div>
 
         <div className="features-grid reveal" style={{ transitionDelay: '100ms' }}>

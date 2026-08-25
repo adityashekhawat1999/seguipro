@@ -62,9 +62,44 @@
   color: var(--accent-orange-start);
 }
 
-/* Pricing Cards */
 .pricing-cards-section {
   margin-bottom: 80px;
+}
+
+.hero-day-promo {
+  margin-top: 24px;
+  padding: 16px 32px;
+  background: rgba(255, 42, 42, 0.05);
+  border: 1px solid rgba(255, 42, 42, 0.2);
+  border-radius: var(--radius-card);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 900px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-day-promo .promo-badge {
+  background: linear-gradient(135deg, #ff2a2a 0%, #cc0000 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.hero-day-promo p {
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.hero-day-promo strong {
+  color: #ff2a2a;
 }
 
 .pricing-cards {
