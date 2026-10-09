@@ -1,9 +1,12 @@
 import QuoteForm from './QuoteForm';
 import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Footer.css';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="footer" id="contacto">
       <div className="footer-ambient-glow"></div>
@@ -13,7 +16,7 @@ export default function Footer() {
           
           <div className="footer-top">
             <h2 className="heading-md footer-headline">
-              Vamos <span className="italic-serif text-gradient">Criar</span> Presença Digital Que Converte
+              {t('footer.titlePt1')}<span className="italic-serif text-gradient">{t('footer.titlePt2')}</span>{t('footer.titlePt3')}
             </h2>
           </div>
 
@@ -21,17 +24,17 @@ export default function Footer() {
             
             <div className="footer-side-left">
               <div className="footer-col">
-                <h4 className="footer-col-title">Links Rápidos</h4>
+                <h4 className="footer-col-title">{t('footer.quickLinks')}</h4>
                 <ul className="footer-links">
-                  <li><Link to="/">Início</Link></li>
-                  <li><Link to="/instagram">Impulsione o seu Instagram</Link></li>
-                  <li><Link to="/websites">Sites & E-commerce</Link></li>
-                  <li><a href="#contacto">Contacto</a></li>
+                  <li><Link to="/">{t('navbar.home')}</Link></li>
+                  <li><Link to="/business-growth">{t('navbar.businessGrowth')}</Link></li>
+                  <li><Link to="/websites">{t('navbar.websites')}</Link></li>
+                  <li><a href="#contacto">{t('navbar.contact')}</a></li>
                 </ul>
               </div>
 
               <div className="footer-col">
-                <h4 className="footer-col-title">Contacto</h4>
+                <h4 className="footer-col-title">{t('footer.contact')}</h4>
                 <ul className="footer-links">
                   <li>
                     <a href="https://www.instagram.com/seguiproo/" target="_blank" rel="noreferrer" className="social-link">
@@ -77,7 +80,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <p>© SeguiProo 2026. Todos os direitos reservados.</p>
+            <p>{t('footer.copyright')}</p>
           </div>
 
         </div>

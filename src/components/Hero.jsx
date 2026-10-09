@@ -1,7 +1,9 @@
 import { ArrowRight, Star } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Hero.css';
 
 export default function Hero() {
+  const { t } = useLanguage();
 
   return (
     <section className="hero" id="hero">
@@ -11,24 +13,24 @@ export default function Hero() {
       <div className="container hero-content">
         <div className="trust-badge reveal">
           <Star size={14} className="star-icon" fill="currentColor" />
-          <span>Mais de 600 clientes satisfeitos</span>
+          <span>{t('home.hero.eyebrow')}</span>
         </div>
 
         <h1 className="heading-lg hero-headline reveal" style={{ transitionDelay: '100ms' }}>
-          <span>Mais Seguidores.</span> <span className="italic-serif text-gradient">Mais Credibilidade.</span><br />
-          <span>Sites Que</span> <span className="italic-serif text-gradient">Fazem Crescer</span> <span>o Seu Negócio.</span>
+          <span>{t('home.hero.titleLine1')}</span> <span className="italic-serif text-gradient">{t('home.hero.titleLine1Highlight')}</span><br />
+          <span>{t('home.hero.titleLine2')}</span> <span className="italic-serif text-gradient">{t('home.hero.titleLine2Highlight')}</span>
         </h1>
 
         <p className="hero-subhead text-muted reveal" style={{ transitionDelay: '200ms' }}>
-          O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade - no Instagram e online.
+          {t('home.hero.subtitle')}
         </p>
 
         <div className="hero-actions reveal" style={{ transitionDelay: '300ms' }}>
           <a href="#contacto" className="btn-primary btn-large">
-            PEDIR ORÇAMENTO GRÁTIS
+            {t('home.hero.ctaPrimary')}
           </a>
           <a href="#servicos" className="btn-secondary">
-            Ver Serviços <ArrowRight size={16} />
+            {t('home.hero.ctaSecondary')} <ArrowRight size={16} />
           </a>
         </div>
       </div>

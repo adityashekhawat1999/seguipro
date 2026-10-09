@@ -1,9 +1,11 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import WebsitesHero from '../components/WebsitesHero';
 import WebDevelopment from '../components/WebDevelopment';
 
 export default function WebsitesPage() {
   useDocumentTitle('Websites & E-commerce - SeguiProo');
+  useScrollReveal();
 
   return (
     <div className="page-websites">

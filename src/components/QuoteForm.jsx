@@ -2,14 +2,16 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { ArrowRight, CheckCircle2, AlertCircle, User, Mail, Phone, Briefcase } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './QuoteForm.css';
 
 export default function QuoteForm() {
+  const { t } = useLanguage();
   const location = useLocation();
   const path = location.pathname;
 
   const getInitialService = () => {
-    if (path === '/instagram') return 'Instagram Growth';
+    if (path === '/business-growth') return 'Business Growth';
     if (path === '/websites') return 'Website';
     return '';
   };
@@ -130,10 +132,10 @@ export default function QuoteForm() {
     return (
       <div className="quote-form-container success-state">
         <CheckCircle2 size={48} className="success-icon" />
-        <h3 className="success-title">PEDIDO RECEBIDO</h3>
+        <h3 className="success-title">{t('home.quoteForm.successTitle')}</h3>
         <p className="success-desc">
-          Obrigado, {formData.name.split(' ')[0]}.<br/>
-          Recebemos o seu pedido e a nossa equipa entrará em contacto brevemente.
+          {t('home.quoteForm.successDesc1')}{formData.name.split(' ')[0]}.<br/>
+          {t('home.quoteForm.successDesc2')}
         </p>
       </div>
     );
@@ -142,14 +144,14 @@ export default function QuoteForm() {
   return (
     <div className="quote-form-container">
       <div className="quote-form-header">
-        <h3 className="qf-title">PEDIR ORÇAMENTO</h3>
-        <p className="qf-subtitle">Diga-nos o que precisa e enviamos a melhor solução.</p>
+        <h3 className="qf-title">{t('home.quoteForm.title')}</h3>
+        <p className="qf-subtitle">{t('home.quoteForm.subtitle')}</p>
       </div>
 
       {submitStatus === 'error' && (
         <div className="qf-error-banner">
           <AlertCircle size={20} />
-          <span>Ocorreu um erro ao enviar. Por favor, tente novamente ou contacte-nos pelo WhatsApp.</span>
+          <span>{t('home.quoteForm.errorMsg')}</span>
         </div>
       )}
 
@@ -158,14 +160,14 @@ export default function QuoteForm() {
         {/* STEP 1: Basic Info */}
         <div className="qf-row">
           <div className="qf-group">
-            <label>NOME COMPLETO</label>
+            <label>{t('home.quoteForm.name')}</label>
             <div className="qf-input-wrapper">
               <User size={18} className="qf-input-icon" />
-              <input type="text" name="name" placeholder="O seu nome" value={formData.name} onChange={handleInputChange} required />
+              <input type="text" name="name" placeholder={t('home.quoteForm.namePlaceholder')} value={formData.name} onChange={handleInputChange} required />
             </div>
           </div>
           <div className="qf-group">
-            <label>EMAIL</label>
+            <label>{t('home.quoteForm.email')}</label>
             <div className="qf-input-wrapper">
               <Mail size={18} className="qf-input-icon" />
               <input type="email" name="email" placeholder="seu@email.com" value={formData.email} onChange={handleInputChange} required />
@@ -175,22 +177,22 @@ export default function QuoteForm() {
 
         <div className="qf-row">
           <div className="qf-group">
-            <label>WHATSAPP / TELEFONE</label>
+            <label>{t('home.quoteForm.whatsapp')}</label>
             <div className="qf-input-wrapper">
               <Phone size={18} className="qf-input-icon" />
               <input type="tel" name="whatsapp" placeholder="+244 900 000 000" value={formData.whatsapp} onChange={handleInputChange} required />
             </div>
           </div>
           <div className="qf-group">
-            <label>SERVIÇO PRETENDIDO</label>
+            <label>{t('home.quoteForm.service')}</label>
             <div className="qf-select-wrapper">
               <Briefcase size={18} className="qf-input-icon select-icon" />
               <select name="service" value={formData.service} onChange={handleInputChange} required>
-                <option value="" disabled>Selecione um serviço...</option>
-                <option value="Instagram Growth">Impulsione o seu Instagram</option>
-                <option value="Website">Criação de Site / E-commerce</option>
-                <option value="SEO">Otimização SEO</option>
-                <option value="Other">Outro / Não tenho certeza</option>
+                <option value="" disabled>{t('home.quoteForm.servicePlaceholder')}</option>
+                <option value="Instagram Growth">{t('home.quoteForm.serviceOpts.insta')}</option>
+                <option value="Website">{t('home.quoteForm.serviceOpts.web')}</option>
+                <option value="SEO">{t('home.quoteForm.serviceOpts.seo')}</option>
+                <option value="Other">{t('home.quoteForm.serviceOpts.other')}</option>
               </select>
             </div>
           </div>
@@ -371,8 +373,8 @@ export default function QuoteForm() {
         </div>
 
         <button type="submit" className="btn-primary qf-submit" disabled={isSubmitting}>
-          {isSubmitting ? 'A ENVIAR...' : (
-            <>ENVIAR SOLICITAÇÃO <ArrowRight size={18} className="qf-btn-icon" /></>
+          {isSubmitting ? t('home.quoteForm.btnSubmitting') : (
+            <>{t('home.quoteForm.btnSubmit')} <ArrowRight size={18} className="qf-btn-icon" /></>
           )}
         </button>
       </form>
