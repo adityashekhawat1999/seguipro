@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { X, ArrowRight, CheckCircle2, AlertCircle, User, Mail, Phone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './QuoteForm.css'; // Reuse form styles
 import './PremiumQuoteModal.css'; // Shared premium modal styles
 
 export default function WebsitesQuoteModal({ isOpen, onClose, plan }) {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -115,25 +117,25 @@ export default function WebsitesQuoteModal({ isOpen, onClose, plan }) {
         {submitStatus === 'success' ? (
           <div className="modal-success-state">
             <CheckCircle2 size={64} className="modal-success-icon" />
-            <h3 className="modal-success-title">PEDIDO RECEBIDO ✓</h3>
+            <h3 className="modal-success-title">{t('websites.modal.successTitle')}</h3>
             <p className="modal-success-desc">
-              Obrigado, {formData.name.split(' ')[0]}.<br/>
-              Recebemos o seu pedido para o <strong>{plan.name}</strong>.<br/><br/>
-              A nossa equipa entrará em contacto consigo brevemente.
+              {t('websites.modal.successDesc1')}{formData.name.split(' ')[0]}.<br/>
+              {t('websites.modal.successDesc2')}<strong>{plan.name}</strong>.<br/><br/>
+              {t('websites.modal.successDesc3')}
             </p>
-            <button className="btn-secondary" onClick={onClose}>FECHAR</button>
+            <button className="btn-secondary" onClick={onClose}>{t('websites.modal.btnClose')}</button>
           </div>
         ) : (
           <>
             <div className="modal-header">
-              <h3 className="modal-title">PEDIR ORÇAMENTO</h3>
+              <h3 className="modal-title">{t('websites.modal.title')}</h3>
               
               {/* Locked Plan Summary */}
               <div className="modal-plan-summary">
                 <div className="mps-name">{plan.name}</div>
                 <div className="mps-price">{plan.price}</div>
                 <div className="mps-details">
-                  <span>{plan.isEcommerce ? 'Loja Online' : 'Website Profissional'}</span>
+                  <span>{plan.isEcommerce ? t('websites.modal.typeStore') : t('websites.modal.typeSite')}</span>
                 </div>
               </div>
             </div>
@@ -142,7 +144,7 @@ export default function WebsitesQuoteModal({ isOpen, onClose, plan }) {
               {submitStatus === 'error' && (
                 <div className="qf-error-banner" style={{ marginBottom: '24px' }}>
                   <AlertCircle size={20} />
-                  <span>Não foi possível enviar o pedido. Por favor, tente novamente ou contacte-nos diretamente pelo WhatsApp.</span>
+                  <span>{t('websites.modal.errorMsg')}</span>
                 </div>
               )}
 
@@ -192,15 +194,15 @@ export default function WebsitesQuoteModal({ isOpen, onClose, plan }) {
                   <textarea 
                     name="message" 
                     rows="3" 
-                    placeholder="Tem alguma funcionalidade específica em mente ou algum site de referência?" 
+                    placeholder={t('websites.modal.reqDesc')}
                     value={formData.message} 
                     onChange={handleInputChange}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="btn-primary qf-submit" disabled={isSubmitting} style={{ marginTop: '24px' }}>
-                  {isSubmitting ? 'A ENVIAR...' : (
-                    <>PEDIR ORÇAMENTO <ArrowRight size={18} className="qf-btn-icon" /></>
+                  {isSubmitting ? t('websites.modal.submitting') : (
+                    <>{t('websites.modal.btnSubmit')} <ArrowRight size={18} className="qf-btn-icon" /></>
                   )}
                 </button>
               </form>

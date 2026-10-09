@@ -43,7 +43,10 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
   return <span ref={counterRef}>{count}{suffix}</span>;
 };
 
+import { useLanguage } from '../context/LanguageContext';
+
 export default function TrustBar() {
+  const { t } = useLanguage();
   return (
     <section className="trust-bar section-padding">
       
@@ -63,26 +66,26 @@ export default function TrustBar() {
         
         <div className="trust-bar-text reveal">
           <p className="text-muted">
-            O seu crescimento digital começa com a escolha certa. Ajudamos criadores, empresas e marcas a crescerem com credibilidade - no Instagram e online.
+            {t('home.trustBar.desc')}
           </p>
         </div>
 
         <div className="trust-bar-stats reveal" style={{ transitionDelay: '200ms' }}>
           <div className="stat-item">
-            <div className="stat-num text-gradient"><AnimatedCounter end={1000} suffix="+" /></div>
-            <div className="stat-label text-muted">Seguidores entregues por pedido</div>
-          </div>
-          <div className="stat-item">
             <div className="stat-num text-gradient"><AnimatedCounter end={600} suffix="+" /></div>
-            <div className="stat-label text-muted">Clientes satisfeitos</div>
+            <div className="stat-label text-muted">{t('home.trustBar.stat1')}</div>
           </div>
           <div className="stat-item">
-            <div className="stat-num text-gradient"><AnimatedCounter end={72} suffix="h" /></div>
-            <div className="stat-label text-muted">Prazo máximo de entrega</div>
+            <div className="stat-num text-gradient"><AnimatedCounter end={3} suffix="" /></div>
+            <div className="stat-label text-muted">{t('home.trustBar.stat2')}</div>
           </div>
           <div className="stat-item">
-            <div className="stat-num text-gradient"><AnimatedCounter end={100} suffix="%" /></div>
-            <div className="stat-label text-muted">Seguro, sem senha necessária</div>
+            <div className="stat-num text-gradient"><AnimatedCounter end={10} suffix="+" /></div>
+            <div className="stat-label text-muted">{t('home.trustBar.stat3')}</div>
+          </div>
+          <div className="stat-item">
+            <div className="stat-num text-gradient"><AnimatedCounter end={8} suffix="" /></div>
+            <div className="stat-label text-muted">{t('home.trustBar.stat4')}</div>
           </div>
         </div>
 

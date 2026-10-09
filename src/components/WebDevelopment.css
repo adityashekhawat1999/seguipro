@@ -98,6 +98,10 @@
   margin: 0;
 }
 
+.section-header {
+  margin-bottom: 60px;
+}
+
 .hero-day-promo strong {
   color: #ff2a2a;
 }
@@ -106,7 +110,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .price-card {
@@ -332,5 +336,11 @@
 @media (max-width: 576px) {
   .promise-band {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    text-align: center;
   }
 }

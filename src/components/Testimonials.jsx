@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 import './Testimonials.css';
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const sectionRef = useRef(null);
   const featuredRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -36,8 +38,8 @@ export default function Testimonials() {
 
   const featuredReview = {
     name: 'João Silva',
-    role: 'Criador de Conteúdo',
-    content: 'A entrega foi super rápida e a qualidade dos seguidores impressionante. A minha página ganhou muito mais credibilidade. Recomendo!',
+    role: t('home.testimonials.featured.role'),
+    content: t('home.testimonials.featured.content'),
     rating: 5,
     image: 'https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?q=80&w=800&auto=format&fit=crop'
   };
@@ -45,24 +47,24 @@ export default function Testimonials() {
   const supportingReviews = [
     {
       name: 'Maria Fernandes',
-      role: 'CEO, Marca de Moda',
-      content: 'Fizemos o nosso site e-commerce com a SeguiProo e as vendas aumentaram no primeiro mês. Design premium e muito rápido.',
+      role: t('home.testimonials.support1.role'),
+      content: t('home.testimonials.support1.content'),
       rating: 5,
       image: 'https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=400&auto=format&fit=crop',
       position: 'top-right'
     },
     {
       name: 'Carlos Oliveira',
-      role: 'Empreendedor',
-      content: 'Atendimento excelente! Precisava de aumentar a prova social do meu negócio.',
+      role: t('home.testimonials.support2.role'),
+      content: t('home.testimonials.support2.content'),
       rating: 5,
       image: 'https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=400&auto=format&fit=crop',
       position: 'bottom-right'
     },
     {
       name: 'Ana Costa',
-      role: 'Influenciadora',
-      content: 'O suporte foi 5 estrelas do início ao fim.',
+      role: t('home.testimonials.support3.role'),
+      content: t('home.testimonials.support3.content'),
       rating: 5,
       image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?q=80&w=400&auto=format&fit=crop',
       position: 'bottom-left'
@@ -82,13 +84,13 @@ export default function Testimonials() {
         
         {/* LEFT: Intro */}
         <div className="testi-intro stagger-1">
-          <div className="eyebrow text-gradient mb-4">O QUE OS NOSSOS CLIENTES DIZEM</div>
+          <div className="eyebrow text-gradient mb-4">{t('home.testimonials.eyebrow')}</div>
           <h2 className="heading-md testi-heading">
-            Pessoas reais.<br/>
-            <span className="italic-serif text-gradient">Resultados reais.</span>
+            {t('home.testimonials.title1')}<br/>
+            <span className="italic-serif text-gradient">{t('home.testimonials.title2')}</span>
           </h2>
           <p className="text-muted mt-6 testi-desc">
-            Mais do que seguidores ou sites. Entregamos credibilidade, confiança e crescimento real para o seu negócio digital.
+            {t('home.testimonials.desc')}
           </p>
         </div>
 
@@ -172,7 +174,7 @@ export default function Testimonials() {
             ))}
           </div>
           <div className="mobile-swipe-indicator text-muted">
-            <span>Deslize para ver mais</span>
+            <span>{t('home.testimonials.swipe')}</span>
           </div>
         </div>
 

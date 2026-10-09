@@ -1,6 +1,8 @@
+import { useLanguage } from '../context/LanguageContext';
 import './FinalCTA.css';
 
 export default function FinalCTA() {
+  const { t } = useLanguage();
   return (
     <section className="insane-cta" id="cta-section">
       <div className="insane-cta-bg">
@@ -12,17 +14,17 @@ export default function FinalCTA() {
           <div className="glow-orb"></div>
           
           <h2 className="cta-insane-heading">
-            Vamos Fazer o Seu <br />
-            <span className="italic-serif neon-text">Negócio</span> Crescer
+            {t('home.finalCTA.title1')} <br />
+            <span className="italic-serif neon-text">{t('home.finalCTA.title2')}</span> {t('home.finalCTA.title3')}
           </h2>
           
           <p className="cta-insane-subhead text-muted">
-            Eleve a sua marca a outro nível. Colabore com a SeguiProo para construir experiências digitais inteligentes, atrair mais clientes e escalar os seus resultados de forma explosiva.
+            {t('home.finalCTA.desc')}
           </p>
           
           <div className="cta-actions">
             <a href="#contacto" className="btn-primary cta-btn-glow">
-              PEDIR ORÇAMENTO GRATUITO
+              {t('home.finalCTA.btn')}
             </a>
           </div>
         </div>

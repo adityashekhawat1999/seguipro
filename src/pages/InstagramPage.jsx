@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import InstagramHero from '../components/InstagramHero';
 import InstagramGrowthSystem from '../components/InstagramGrowthSystem';
@@ -5,6 +6,7 @@ import InstagramGrowth from '../components/InstagramGrowth';
 
 export default function InstagramPage() {
   useDocumentTitle('Impulsione o seu Instagram - SeguiProo');
+  useScrollReveal();
 
   return (
     <div className="page-instagram">

@@ -1,3 +1,4 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useDocumentTitle } from '../hooks/useDocumentTitle';
 import Hero from '../components/Hero';
 import TrustBar from '../components/TrustBar';
@@ -8,6 +9,7 @@ import FinalCTA from '../components/FinalCTA';
 
 export default function Home() {
   useDocumentTitle('SeguiProo');
+  useScrollReveal();
 
   return (
     <div className="page-home">

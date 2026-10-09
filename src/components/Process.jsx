@@ -1,16 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 import './Process.css';
 
 export default function Process() {
+  const { t, language } = useLanguage();
   const [activeStep, setActiveStep] = useState(0);
   const stepsRef = useRef([]);
 
-  const steps = [
-    { title: 'Pedido & Consulta', desc: 'Escolhe o serviço e o pacote ideal para o teu objetivo.' },
-    { title: 'Pagamento Seguro', desc: 'Confirmação e início imediato do trabalho.' },
-    { title: 'Entrega', desc: 'Seguidores entregues em até 72h, ou site entregue no prazo do pacote escolhido.' },
-    { title: 'Suporte Contínuo', desc: 'Acompanhamento após a entrega, com garantia de reposição/revisões.' },
-  ];
+  // Steps will be pulled directly from the translation engine
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,9 +40,9 @@ export default function Process() {
       <div className="container">
         
         <div className="section-header reveal">
-          <div className="eyebrow text-gradient">Como Funciona</div>
+          <div className="eyebrow text-gradient">{t('home.process.eyebrow')}</div>
           <h2 className="heading-md">
-            O Nosso <span className="italic-serif text-gradient">Processo</span>
+            {t('home.process.title1')} <span className="italic-serif text-gradient">{t('home.process.title2')}</span>
           </h2>
         </div>
 
@@ -59,20 +56,23 @@ export default function Process() {
           </div>
 
           <div className="process-steps">
-            {steps.map((step, idx) => (
-              <div 
-                key={idx} 
-                className={`process-step ${activeStep === idx ? 'active' : ''}`}
-                ref={el => stepsRef.current[idx] = el}
-                onMouseEnter={() => setActiveStep(idx)}
-              >
-                <div className="step-num text-gradient">0{idx + 1}</div>
-                <div className="step-content">
-                  <h3 className="step-title">{step.title}</h3>
-                  <p className="step-desc text-muted">{step.desc}</p>
+            {[0, 1, 2, 3].map((idx) => {
+              const step = t(`home.process.steps.${idx}`);
+              return (
+                <div 
+                  key={idx} 
+                  className={`process-step ${activeStep === idx ? 'active' : ''}`}
+                  ref={el => stepsRef.current[idx] = el}
+                  onMouseEnter={() => setActiveStep(idx)}
+                >
+                  <div className="step-num text-gradient">0{idx + 1}</div>
+                  <div className="step-content">
+                    <h3 className="step-title">{step.title}</h3>
+                    <p className="step-desc text-muted">{step.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>
